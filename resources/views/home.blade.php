@@ -37,32 +37,32 @@
 
                     <table class="table table-dark table-striped table-borderless table-hover">
                         <thead>
-                          <tr>
-                            <th scope="col">Tasks</th>
-                            <th scope="col">Created On</th>
-                            <th scope="col">Completed On</th>
-                            <th scope="col">Actions</th>
+                          <tr class="row">
+                            <th class="col-sm-3 pl-4">Tasks</th>
+                            <th class="col-sm-3 pl-4">Created On</th>
+                            <th class="col-sm-3 pl-4">Completed On</th>
+                            <th class="col-sm-3 pl-4">Actions</th>
                           </tr>
                         </thead>
                         <tbody>
                             @forelse ($todos as $todo)
-                                <tr>
+                                <tr class="row">
                                     @if ($todo->completed)
-                                        <td scope="row"><a href="{{ route('todo.edit', $todo->id) }}" style="color: white"><s>{{ $todo->title }}</s></a></td>
-                                        <td scopre="row"> {{ $todo->created_at }} </td>
-                                        <td scopre="row"> {{ $todo->updated_at }} </td>
+                                        <td class="col-sm-3 pl-4"><a href="{{ route('todo.edit', $todo->id) }}" style="color: white"><s>{{ $todo->title }}</s></a></td>
+                                        <td class="col-sm-3 pl-4"> {{ $todo->created_at }} </td>
+                                        <td class="col-sm-3 pl-4"> {{ $todo->updated_at }} </td>
                                     @else
-                                        <td scope="row"><a href="{{ route('todo.edit', $todo->id) }}" style="color: white">{{ $todo->title }}</a></td>
-                                        <td scopre="row"> {{ $todo->created_at }} </td>
-                                        <td scopre="row"> -- </td>
+                                        <td class="col-sm-3 pl-4"><a href="{{ route('todo.edit', $todo->id) }}" style="color: white">{{ $todo->title }}</a></td>
+                                        <td class="col-sm-3 pl-4"> {{ $todo->created_at }} </td>
+                                        <td class="col-sm-3 pl-4"> -- </td>
                                     @endif
-                                    <td>
+                                    <td class="col-sm-3 pl-4">
                                         <a href="{{ route('todo.edit', $todo->id) }}" class="btn btn-sm btn-outline-success"><i class="fa fa-pencil-square-o"></i></a>
                                         <a href="{{ route('todo.show', $todo->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @empty
-                                <tr>
+                                <tr class="row">
                                     <td colspan=4><center>No Tasks To Show!!!</center></td>
                                 </tr>
                             @endforelse
